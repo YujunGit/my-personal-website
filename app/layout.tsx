@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { LanguageProvider } from '../lib/context/LanguageContext'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Yujun Zheng - Software Engineer',
-  description: 'Results-driven Software Engineer with 4+ years of experience in full-stack development, IoT systems, and test automation. Currently SDET II at TikTok.',
+  description: 'Results-driven Software Engineer with 4+ years of experience in full-stack development, IoT systems, and test automation.',
   keywords: 'Software Engineer, Full Stack Developer, IoT, Test Automation, Java, Python, JavaScript, AWS',
   authors: [{ name: 'Yujun Zheng' }],
   openGraph: {
@@ -25,7 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   )

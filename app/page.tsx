@@ -15,9 +15,12 @@ import {
   Cloud,
   Cpu
 } from 'lucide-react'
+import { useLanguage } from '../lib/context/LanguageContext'
+import { LanguageToggle } from '../components/LanguageToggle'
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false)
+  const { t } = useLanguage()
 
   useEffect(() => {
     setIsVisible(true)
@@ -41,16 +44,17 @@ export default function Home() {
             >
               Yujun Zheng
             </motion.div>
-            <div className="hidden md:flex space-x-8">
-              {['About', 'Experience', 'Projects', 'Contact'].map((item) => (
+            <div className="hidden md:flex items-center space-x-8">
+              {[t.nav.about, t.nav.experience, t.nav.projects, t.nav.contact].map((item, index) => (
                 <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
+                  key={index}
+                  onClick={() => scrollToSection(['about', 'experience', 'projects', 'contact'][index])}
                   className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
                 >
                   {item}
                 </button>
               ))}
+              <LanguageToggle />
             </div>
           </div>
         </div>
@@ -66,23 +70,22 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                Hi, I'm{' '}
-                <span className="gradient-text">Yujun</span>
+                {t.hero.greeting}{' '}
+                <span className="gradient-text">{t.hero.name}</span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                A results-driven Software Engineer with over 4 years of comprehensive experience 
-                in software designing, development and testing.
+                {t.hero.description}
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
                 <button className="btn-primary flex items-center gap-2">
                   <Download size={20} />
-                  Download Resume
+                  {t.hero.downloadResume}
                 </button>
                 <button 
                   onClick={() => scrollToSection('contact')}
                   className="btn-secondary"
                 >
-                  Get In Touch
+                  {t.hero.getInTouch}
                 </button>
               </div>
               <div className="flex space-x-4">
@@ -155,9 +158,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.about.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Passionate about building scalable systems and solving complex problems through technology
+              {t.about.subtitle}
             </p>
           </motion.div>
           
@@ -168,17 +171,12 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">My Journey</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t.about.journey}</h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                With a strong foundation in Computer Science, IoT, and Electrical Engineering, 
-                I've built a diverse skill set spanning full-stack development, test automation, 
-                and IoT systems. My experience ranges from working with billion-user systems at TikTok 
-                to developing innovative IoT solutions for smart homes.
+                {t.about.journeyText1}
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                I'm passionate about leveraging cutting-edge technologies to solve complex problems 
-                and drive business value. My expertise includes Java, Python, JavaScript, AWS, 
-                and various IoT platforms.
+                {t.about.journeyText2}
               </p>
               <div className="flex flex-wrap gap-2">
                 {['Java', 'Python', 'JavaScript', 'AWS', 'Docker', 'Kubernetes', 'React', 'Spring Boot', 'MySQL', 'Redis', 'Kafka', 'MQTT'].map((skill) => (
@@ -196,7 +194,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="bg-gray-50 rounded-2xl p-8"
             >
-              <h4 className="text-xl font-semibold text-gray-900 mb-6">Education</h4>
+              <h4 className="text-xl font-semibold text-gray-900 mb-6">{t.about.education}</h4>
               <div className="space-y-6">
                 <div className="border-l-4 border-primary-500 pl-4">
                   <h5 className="font-semibold text-gray-900">Master of Science in Computer Science (Artificial Intelligence)</h5>
@@ -229,9 +227,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Professional Experience</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.experience.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Building scalable systems and delivering high-quality solutions across diverse industries
+              {t.experience.subtitle}
             </p>
           </motion.div>
 
@@ -326,9 +324,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.projects.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Innovative solutions spanning IoT, automation, and intelligent systems
+              {t.projects.subtitle}
             </p>
           </motion.div>
 
@@ -394,9 +392,9 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{t.contact.title}</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              I'm always interested in new opportunities and exciting projects. Let's connect!
+              {t.contact.subtitle}
             </p>
           </motion.div>
 
@@ -410,7 +408,7 @@ export default function Home() {
             <div className="bg-white rounded-xl p-8 shadow-sm">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">{t.contact.contactInfo}</h3>
                   <div className="space-y-4">
                     <div className="flex items-center">
                       <Mail className="text-primary-600 mr-4" size={24} />
@@ -440,7 +438,7 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Connect With Me</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">{t.contact.connectWithMe}</h3>
                   <div className="space-y-4">
                     <a 
                       href="mailto:zhengyujun@outlook.com" 
@@ -448,8 +446,8 @@ export default function Home() {
                     >
                       <Mail className="text-primary-600 mr-4" size={24} />
                       <div>
-                        <p className="font-semibold text-gray-900">Send Email</p>
-                        <p className="text-sm text-gray-600">Get in touch via email</p>
+                        <p className="font-semibold text-gray-900">{t.contact.sendEmail}</p>
+                        <p className="text-sm text-gray-600">{t.contact.sendEmailDesc}</p>
                       </div>
                     </a>
                     <a 
@@ -458,8 +456,8 @@ export default function Home() {
                     >
                       <Linkedin className="text-blue-600 mr-4" size={24} />
                       <div>
-                        <p className="font-semibold text-gray-900">LinkedIn</p>
-                        <p className="text-sm text-gray-600">Connect on LinkedIn</p>
+                        <p className="font-semibold text-gray-900">{t.contact.linkedin}</p>
+                        <p className="text-sm text-gray-600">{t.contact.linkedinDesc}</p>
                       </div>
                     </a>
                     <a 
@@ -468,8 +466,8 @@ export default function Home() {
                     >
                       <Github className="text-gray-600 mr-4" size={24} />
                       <div>
-                        <p className="font-semibold text-gray-900">GitHub</p>
-                        <p className="text-sm text-gray-600">View my code</p>
+                        <p className="font-semibold text-gray-900">{t.contact.github}</p>
+                        <p className="text-sm text-gray-600">{t.contact.githubDesc}</p>
                       </div>
                     </a>
                   </div>
@@ -484,7 +482,7 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-8">
         <div className="container-max text-center">
           <p className="text-gray-400">
-            © 2024 Yujun Zheng. Built with Next.js and Tailwind CSS.
+            {t.footer.copyright}
           </p>
         </div>
       </footer>
