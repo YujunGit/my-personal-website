@@ -125,8 +125,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 📞 Contact
 
 - **Email**: zhengyujun@outlook.com
-- **Phone**: +1 (857) 800-4553
-- **Location**: Boston, MA
+- **Phone**: +1 (857) 800-4553 || +86 18800256317
 
 ---
 
