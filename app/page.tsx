@@ -69,65 +69,105 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-                {t.hero.greeting}{' '}
-                <span className="gradient-text">{t.hero.name}</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                {t.hero.description}
-              </p>
-              <div className="flex flex-wrap gap-4 mb-8">
-                <button className="btn-primary flex items-center gap-2">
-                  <Download size={20} />
-                  {t.hero.downloadResume}
-                </button>
-                <button 
-                  onClick={() => scrollToSection('contact')}
-                  className="btn-secondary"
+              {/* Avatar and Title Row */}
+              <div className="flex items-center gap-6 mb-6">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="flex-shrink-0"
                 >
-                  {t.hero.getInTouch}
-                </button>
+                  <img
+                    src="/avatar.jpg"
+                    alt="Yujun Zheng"
+                    className="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full shadow-lg border-3 border-white"
+                  />
+                </motion.div>
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900">
+                  {t.hero.greeting}{' '}
+                  <span className="gradient-text">{t.hero.name}</span>
+                </h1>
               </div>
-              <div className="flex space-x-4">
-                <a href="mailto:zhengyujun@outlook.com" className="text-gray-400 hover:text-primary-600 transition-colors">
-                  <Mail size={24} />
-                </a>
-                <a href="https://github.com" className="text-gray-400 hover:text-primary-600 transition-colors">
-                  <Github size={24} />
-                </a>
-                <a href="https://linkedin.com" className="text-gray-400 hover:text-primary-600 transition-colors">
-                  <Linkedin size={24} />
-                </a>
+              
+              {/* Description and Actions */}
+              <div className="text-center lg:text-left">
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                  {t.hero.description}
+                </p>
+                <div className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start">
+                  <button className="btn-primary flex items-center gap-2">
+                    <Download size={20} />
+                    {t.hero.downloadResume}
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className="btn-secondary"
+                  >
+                    {t.hero.getInTouch}
+                  </button>
+                </div>
+                <div className="flex space-x-4 justify-center lg:justify-start">
+                  <a href="mailto:zhengyujun@outlook.com" className="text-gray-400 hover:text-primary-600 transition-colors">
+                    <Mail size={24} />
+                  </a>
+                  <a href="https://github.com/YujunGit" className="text-gray-400 hover:text-primary-600 transition-colors">
+                    <Github size={24} />
+                  </a>
+                  <a href="https://linkedin.com" className="text-gray-400 hover:text-primary-600 transition-colors">
+                    <Linkedin size={24} />
+                  </a>
+                </div>
               </div>
             </motion.div>
+            
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
               className="relative"
             >
               <div className="bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl p-8">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    className="bg-white rounded-lg p-4 shadow-sm"
+                  >
                     <Code className="text-primary-600 mb-2" size={32} />
                     <h3 className="font-semibold text-gray-900">Full Stack</h3>
                     <p className="text-sm text-gray-600">Java, Python, JS</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    className="bg-white rounded-lg p-4 shadow-sm"
+                  >
                     <Database className="text-primary-600 mb-2" size={32} />
                     <h3 className="font-semibold text-gray-900">Data Systems</h3>
                     <p className="text-sm text-gray-600">MySQL, Redis, Kafka</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                    className="bg-white rounded-lg p-4 shadow-sm"
+                  >
                     <Cloud className="text-primary-600 mb-2" size={32} />
                     <h3 className="font-semibold text-gray-900">Cloud & DevOps</h3>
                     <p className="text-sm text-gray-600">AWS, Docker, K8s</p>
-                  </div>
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                    className="bg-white rounded-lg p-4 shadow-sm"
+                  >
                     <Cpu className="text-primary-600 mb-2" size={32} />
                     <h3 className="font-semibold text-gray-900">IoT & Hardware</h3>
                     <p className="text-sm text-gray-600">Raspberry Pi, Arduino</p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
@@ -461,10 +501,10 @@ export default function Home() {
                       </div>
                     </a>
                     <a 
-                      href="https://github.com/yujunzheng" 
-                      className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                      href="https://github.com/YujunGit" 
+                      className="flex items-center p-4 bg-primary-50 rounded-lg hover:bg-primary-100 transition-colors"
                     >
-                      <Github className="text-gray-600 mr-4" size={24} />
+                      <Github className="text-primary-600 mr-4" size={24} />
                       <div>
                         <p className="font-semibold text-gray-900">{t.contact.github}</p>
                         <p className="text-sm text-gray-600">{t.contact.githubDesc}</p>
