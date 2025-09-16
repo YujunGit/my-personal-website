@@ -71,7 +71,7 @@ export default function Home() {
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 A results-driven Software Engineer with over 4 years of comprehensive experience 
-                in software designing, development and testing. Currently working as SDET II at TikTok.
+                in software designing, development and testing.
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
                 <button className="btn-primary flex items-center gap-2">
@@ -199,6 +199,11 @@ export default function Home() {
               <h4 className="text-xl font-semibold text-gray-900 mb-6">Education</h4>
               <div className="space-y-6">
                 <div className="border-l-4 border-primary-500 pl-4">
+                  <h5 className="font-semibold text-gray-900">Master of Science in Computer Science (Artificial Intelligence)</h5>
+                  <p className="text-primary-600 font-medium">Georgia Institute of Technology</p>
+                  <p className="text-gray-600">Online • Expected 2027</p>
+                </div>
+                <div className="border-l-4 border-primary-500 pl-4">
                   <h5 className="font-semibold text-gray-900">Master of Science in Cyber-Physical Systems</h5>
                   <p className="text-primary-600 font-medium">Northeastern University</p>
                   <p className="text-gray-600">Boston, MA • Dec 2021</p>
@@ -236,7 +241,7 @@ export default function Home() {
                 company: 'TikTok',
                 position: 'SDET II, Privacy & Security',
                 period: 'Sep 2024 - Feb 2025',
-                location: 'Remote',
+                location: 'San Jose, CA, US',
                 highlights: [
                   'Delivered high-quality assurance for big data systems serving 1 billion users',
                   'Developed Python-based test automation framework with 90% API coverage',
@@ -246,7 +251,7 @@ export default function Home() {
                 technologies: ['Python', 'Go', 'RPC', 'HTTP', 'Big Data', 'CI/CD']
               },
               {
-                company: 'IDEXX Laboratories',
+                company: 'Marlabs LLC (IDEXX)',
                 position: 'Full Stack Software Programmer',
                 period: 'Feb 2023 - Aug 2024',
                 location: 'Remote',
@@ -414,14 +419,22 @@ export default function Home() {
                       </a>
                     </div>
                     <div className="flex items-center">
+                      <Mail className="text-primary-600 mr-4" size={24} />
+                      <a href="mailto:yujun.zheng@gatech.edu" className="text-gray-600 hover:text-primary-600 transition-colors">
+                        yujun.zheng@gatech.edu
+                      </a>
+                    </div>
+                    <div className="flex items-center">
                       <Phone className="text-primary-600 mr-4" size={24} />
                       <a href="tel:+18578004553" className="text-gray-600 hover:text-primary-600 transition-colors">
                         +1 (857) 800-4553
                       </a>
                     </div>
                     <div className="flex items-center">
-                      <MapPin className="text-primary-600 mr-4" size={24} />
-                      <span className="text-gray-600">Boston, MA</span>
+                      <Phone className="text-primary-600 mr-4" size={24} />
+                      <a href="tel:+8618800256317" className="text-gray-600 hover:text-primary-600 transition-colors">
+                        +86 18800256317
+                      </a>
                     </div>
                   </div>
                 </div>
