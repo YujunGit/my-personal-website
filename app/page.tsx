@@ -128,46 +128,19 @@ export default function Home() {
             >
               <div className="bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl p-8">
                 <div className="grid grid-cols-2 gap-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="bg-white rounded-lg p-4 shadow-sm"
-                  >
-                    <Code className="text-primary-600 mb-2" size={32} />
-                    <h3 className="font-semibold text-gray-900">Full Stack</h3>
-                    <p className="text-sm text-gray-600">Java, Python, JS</p>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="bg-white rounded-lg p-4 shadow-sm"
-                  >
-                    <Database className="text-primary-600 mb-2" size={32} />
-                    <h3 className="font-semibold text-gray-900">Data Systems</h3>
-                    <p className="text-sm text-gray-600">MySQL, Redis, Kafka</p>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                    className="bg-white rounded-lg p-4 shadow-sm"
-                  >
-                    <Cloud className="text-primary-600 mb-2" size={32} />
-                    <h3 className="font-semibold text-gray-900">Cloud & DevOps</h3>
-                    <p className="text-sm text-gray-600">AWS, Docker, K8s</p>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 }}
-                    className="bg-white rounded-lg p-4 shadow-sm"
-                  >
-                    <Cpu className="text-primary-600 mb-2" size={32} />
-                    <h3 className="font-semibold text-gray-900">IoT & Hardware</h3>
-                    <p className="text-sm text-gray-600">Raspberry Pi, Arduino</p>
-                  </motion.div>
+                  {[Code, Database, Cloud, Cpu].map((Icon, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                      className="bg-white rounded-lg p-4 shadow-sm"
+                    >
+                      <Icon className="text-primary-600 mb-2" size={32} />
+                      <h3 className="font-semibold text-gray-900">{t.hero.cards[index].title}</h3>
+                      <p className="text-sm text-gray-600">{t.hero.cards[index].description}</p>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -236,21 +209,13 @@ export default function Home() {
             >
               <h4 className="text-xl font-semibold text-gray-900 mb-6">{t.about.education}</h4>
               <div className="space-y-6">
-                <div className="border-l-4 border-primary-500 pl-4">
-                  <h5 className="font-semibold text-gray-900">Master of Science in Computer Science (Artificial Intelligence)</h5>
-                  <p className="text-primary-600 font-medium">Georgia Institute of Technology</p>
-                  <p className="text-gray-600">Online • Expected 2027</p>
-                </div>
-                <div className="border-l-4 border-primary-500 pl-4">
-                  <h5 className="font-semibold text-gray-900">Master of Science in Cyber-Physical Systems</h5>
-                  <p className="text-primary-600 font-medium">Northeastern University</p>
-                  <p className="text-gray-600">Boston, MA • Dec 2021</p>
-                </div>
-                <div className="border-l-4 border-primary-500 pl-4">
-                  <h5 className="font-semibold text-gray-900">Bachelor of Science in Information Engineering</h5>
-                  <p className="text-primary-600 font-medium">Shanghai Jiao Tong University</p>
-                  <p className="text-gray-600">Shanghai, China • July 2018</p>
-                </div>
+                {t.about.educationItems.map((item, index) => (
+                  <div key={index} className="border-l-4 border-primary-500 pl-4">
+                    <h5 className="font-semibold text-gray-900">{item.degree}</h5>
+                    <p className="text-primary-600 font-medium">{item.school}</p>
+                    <p className="text-gray-600">{item.detail}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
@@ -274,47 +239,7 @@ export default function Home() {
           </motion.div>
 
           <div className="space-y-8">
-            {[
-              {
-                company: 'TikTok',
-                position: 'SDET II, Privacy & Security',
-                period: 'Sep 2024 - Feb 2025',
-                location: 'San Jose, CA, US',
-                highlights: [
-                  'Delivered high-quality assurance for big data systems serving 1 billion users',
-                  'Developed Python-based test automation framework with 90% API coverage',
-                  'Built demo services in Go for functional testing of Purpose Limitation SDK',
-                  'Enhanced monitoring dashboards with real-time insights and anomaly detection'
-                ],
-                technologies: ['Python', 'Go', 'RPC', 'HTTP', 'Big Data', 'CI/CD']
-              },
-              {
-                company: 'Marlabs LLC (IDEXX)',
-                position: 'Full Stack Software Programmer',
-                period: 'Feb 2023 - Aug 2024',
-                location: 'Remote',
-                highlights: [
-                  'Implemented user session management using Redis distributed storage',
-                  'Built product and order management pages with Thymeleaf and AJAX',
-                  'Optimized stock deduction efficiency using Redis atomic operations',
-                  'Achieved 10x throughput increase through stress testing and optimization'
-                ],
-                technologies: ['Java', 'Spring Boot', 'Redis', 'MySQL', 'RabbitMQ', 'Thymeleaf']
-              },
-              {
-                company: 'RND4IMPACT Inc.',
-                position: 'Software Developer',
-                period: 'May 2022 - Feb 2023',
-                location: 'Remote',
-                highlights: [
-                  'Implemented end-to-end IoT solutions using Python and Java',
-                  'Designed data management strategies with custom JSON formats',
-                  'Integrated TLS and authentication mechanisms for IoT security',
-                  'Developed MQTT and CoAP servers with cloud visualization'
-                ],
-                technologies: ['Python', 'Java', 'MQTT', 'CoAP', 'IoT', 'MySQL', 'TLS']
-              }
-            ].map((job, index) => (
+            {t.experience.jobs.map((job, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -371,26 +296,7 @@ export default function Home() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Smart Home Control System',
-                description: 'End-to-end IoT solution with MQTT/CoAP communication, TLS security, and cloud visualization.',
-                technologies: ['Python', 'Java', 'MQTT', 'CoAP', 'MySQL', 'TLS'],
-                highlights: ['Device-to-cloud communication', 'Real-time data visualization', 'Security integration']
-              },
-              {
-                title: 'Intelligent Bicycle Suites',
-                description: 'Complete AR helmet system with sensors, speed detection, and collision avoidance.',
-                technologies: ['C++', 'Python', 'Raspberry Pi', 'Arduino', 'Bluetooth'],
-                highlights: ['AR helmet display', 'Speed & cadence detection', 'Collision avoidance']
-              },
-              {
-                title: 'Advanced Security System',
-                description: 'Multi-modal recognition system with face, character, and marker detection capabilities.',
-                technologies: ['C++', 'OpenCV', 'Deep Learning', 'Node.js', 'MySQL'],
-                highlights: ['Face recognition', 'Character recognition', 'Real-time processing']
-              }
-            ].map((project, index) => (
+            {t.projects.items.map((project, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
