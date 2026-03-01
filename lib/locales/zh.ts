@@ -64,7 +64,7 @@ export const zh = {
         company: 'Marlabs LLC（IDEXX）',
         position: '全栈软件工程师',
         period: '2023 年 2 月 - 2024 年 8 月',
-        location: '远程',
+        location: '美国波士顿',
         highlights: [
           '基于 Redis 分布式存储实现用户会话管理',
           '使用 Thymeleaf 与 AJAX 构建产品和订单管理页面',

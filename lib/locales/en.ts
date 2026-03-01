@@ -64,7 +64,7 @@ export const en = {
         company: 'Marlabs LLC (IDEXX)',
         position: 'Full Stack Software Programmer',
         period: 'Feb 2023 - Aug 2024',
-        location: 'Remote',
+        location: 'Boston, MA, US',
         highlights: [
           'Implemented user session management using Redis distributed storage',
           'Built product and order management pages with Thymeleaf and AJAX',
