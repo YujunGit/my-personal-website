@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://yujunzheng.com'),
   title: 'Yujun Zheng - Software Engineer | Full Stack Developer',
   description: 'Yujun Zheng is a results-driven Software Engineer with 4+ years of experience in full-stack development, IoT systems, and test automation. Currently pursuing MS in Computer Science at Georgia Tech.',
   keywords: 'Yujun Zheng, Software Engineer, Full Stack Developer, IoT, Test Automation, Java, Python, JavaScript, AWS, TikTok, Georgia Tech, Computer Science, AI',
