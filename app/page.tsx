@@ -113,7 +113,7 @@ export default function Home() {
                   <a href="https://github.com/YujunGit" className="text-gray-400 hover:text-primary-600 transition-colors">
                     <Github size={24} />
                   </a>
-                  <a href="https://linkedin.com" className="text-gray-400 hover:text-primary-600 transition-colors">
+                  <a href="https://www.linkedin.com/in/yujun-zheng-2021/" className="text-gray-400 hover:text-primary-600 transition-colors">
                     <Linkedin size={24} />
                   </a>
                 </div>
@@ -397,7 +397,7 @@ export default function Home() {
                       </div>
                     </a>
                     <a 
-                      href="https://linkedin.com/in/yujun-zheng" 
+                      href="https://www.linkedin.com/in/yujun-zheng-2021/" 
                       className="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
                     >
                       <Linkedin className="text-blue-600 mr-4" size={24} />
