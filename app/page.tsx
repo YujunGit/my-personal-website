@@ -44,16 +44,18 @@ export default function Home() {
             >
               Yujun Zheng
             </motion.div>
-            <div className="hidden md:flex items-center space-x-8">
-              {[t.nav.about, t.nav.experience, t.nav.projects, t.nav.contact].map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => scrollToSection(['about', 'experience', 'projects', 'contact'][index])}
-                  className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
-                >
-                  {item}
-                </button>
-              ))}
+            <div className="flex items-center gap-3">
+              <div className="hidden md:flex items-center space-x-8">
+                {[t.nav.about, t.nav.experience, t.nav.projects, t.nav.contact].map((item, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollToSection(['about', 'experience', 'projects', 'contact'][index])}
+                    className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                  >
+                    {item}
+                  </button>
+                ))}
+              </div>
               <LanguageToggle />
             </div>
           </div>
