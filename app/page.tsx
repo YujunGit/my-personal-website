@@ -5,7 +5,6 @@ import { motion } from 'framer-motion'
 import { 
   Mail, 
   Phone, 
-  MapPin, 
   Github, 
   Linkedin, 
   Download,
@@ -13,14 +12,24 @@ import {
   Code,
   Database,
   Cloud,
-  Cpu
+  Cpu,
+  Menu,
+  X
 } from 'lucide-react'
 import { useLanguage } from '../lib/context/LanguageContext'
 import { LanguageToggle } from '../components/LanguageToggle'
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { t } = useLanguage()
+
+  const navItems = [
+    { label: t.nav.about, id: 'about' },
+    { label: t.nav.experience, id: 'experience' },
+    { label: t.nav.projects, id: 'projects' },
+    { label: t.nav.contact, id: 'contact' },
+  ]
 
   useEffect(() => {
     setIsVisible(true)
@@ -28,6 +37,7 @@ export default function Home() {
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
+    setMobileMenuOpen(false)
   }
 
   return (
@@ -44,19 +54,50 @@ export default function Home() {
             >
               Yujun Zheng
             </motion.div>
-            <div className="hidden md:flex items-center space-x-8">
-              {[t.nav.about, t.nav.experience, t.nav.projects, t.nav.contact].map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => scrollToSection(['about', 'experience', 'projects', 'contact'][index])}
-                  className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
-                >
-                  {item}
-                </button>
-              ))}
+            <div className="flex items-center gap-3">
+              <div className="hidden md:flex items-center space-x-8">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-gray-600 hover:text-primary-600 transition-colors duration-200"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
               <LanguageToggle />
+              <button
+                type="button"
+                aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-navigation"
+                onClick={() => setMobileMenuOpen((open) => !open)}
+                className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-gray-600 hover:bg-gray-100 hover:text-primary-600 transition-colors"
+              >
+                {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              </button>
             </div>
           </div>
+          {mobileMenuOpen && (
+            <div
+              id="mobile-navigation"
+              className="md:hidden border-t border-gray-100 py-3"
+            >
+              <div className="flex flex-col gap-1">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => scrollToSection(item.id)}
+                    className="rounded-lg px-3 py-3 text-left text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
