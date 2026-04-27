@@ -50,7 +50,7 @@ export const zh = {
       {
         company: 'TikTok',
         position: 'SDET II（隐私与安全）',
-        period: '2024 年 9 月 - 2025 年 2 月',
+        period: '2024 年 9 月 - 现在',
         location: '美国加州圣何塞',
         highlights: [
           '为十亿用户规模的大数据系统提供高质量测试保障',

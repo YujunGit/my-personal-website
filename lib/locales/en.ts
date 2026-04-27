@@ -50,7 +50,7 @@ export const en = {
       {
         company: 'TikTok',
         position: 'SDET II, Privacy & Security',
-        period: 'Sep 2024 - Feb 2025',
+        period: 'Sep 2024 - Now',
         location: 'San Jose, CA, US',
         highlights: [
           'Delivered high-quality assurance for big data systems serving 1 billion users',
